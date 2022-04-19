@@ -1,0 +1,335 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Lato', serif;
+            background-color: #000000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 100px;
+            background-color: #031d2e;
+            button {
+                font-size: 16px;
+                padding: 10px 25px;
+                margin-left: 10px;
+                border-radius: 25px;
+            }
+            .logo {
+                display: inline-flex;
+                font-family: 'IBM Plex Serif';
+                color: #ffffff;
+                .first-name {
+                    font-weight: 400;
+                    font-size: 30px;
+                }
+                .last-name {
+                    font-weight: 600;
+                    font-size: 30px;
+                }
+            }
+            .delete-all {
+                display: inline-block;
+                color: #ffffff;
+                background-color: #a80000;
+                border: 1px solid #a80000;
+            }
+            .new {
+                display: inline-block;
+                color: #ffffff;
+                background-color: #b354b7;
+                border: 1px solid #b354b7;
+            }
+            .fas.fa-arrow-left {
+                color: #fcfcfc;
+                font-size: 30px;
+                margin-right: 25px;
+            }
+        }
+        
+        .card-wrapper-empty {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .card-wrapper {
+            display: flex;
+            height: auto;
+            flex-direction: column;
+            position: relative;
+            left: 18%;
+            width: 70%;
+            .card-container {
+                display: flex;
+                justify-content: flex-start;
+                margin: 60px 0px;
+                flex-wrap: wrap;
+            }
+            .card {
+                margin: 15px;
+                height: 430px;
+                width: 20%;
+                border-radius: 10px;
+                padding: 15px;
+                word-wrap: break-word;
+                .card-note-title {
+                    margin-bottom: 10px;
+                    font-size: 30px;
+                    font-weight: 600;
+                }
+                .card-note-date {
+                    margin-bottom: 20px;
+                    font-weight: 600;
+                }
+                .card-note-image {
+                    object-fit: contain;
+                    width: 100%;
+                    height: 30%;
+                }
+                .card-note-content {
+                    margin-top: 25px;
+                }
+            }
+            button {
+                font-size: 16px;
+                padding: 10px 25px;
+                margin-left: 10px;
+                border-radius: 25px;
+            }
+        }
+        
+        i.fa-solid.fa-cube {
+            margin-top: 10%;
+            margin-bottom: 2%;
+            display: block;
+            color: #fcfcfc;
+            font-size: 175px;
+        }
+        
+        .text-empty {
+            display: block;
+            color: #fcfcfc;
+            font-size: 30px;
+            font-weight: 300;
+        }
+        
+        .overlay {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 10;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        
+        .hide-new-note {
+            position: relative;
+            height: 100vh;
+            background-color: #031d2e;
+            opacity: 0.2;
+            transition: 1.5s;
+        }
+        
+        .new-note {
+            position: absolute;
+            top: 0%;
+            left: 70%;
+            width: 30%;
+            padding: 50px;
+            background-color: #000000;
+            input {
+                display: inline-block;
+                width: 100%;
+                height: 40px;
+                padding: 1px;
+                margin-top: 15px;
+                color: #363636;
+                background-color: #000000;
+                border: 1px solid #000000;
+            }
+            textArea {
+                display: inline-block;
+                width: 100%;
+                height: 639px;
+                padding: 1px;
+                margin-top: 15px;
+                color: #363636;
+                background-color: #000000;
+                border: 1px solid #000000;
+            }
+            .new-note-cancel {
+                margin: auto;
+                display: flex;
+                font-size: 18px;
+                justify-content: space-between;
+                background-color: #031d2e;
+                border: 1px solid #031d2e;
+                color: #ffffff;
+                padding: 17px;
+                width: 100%;
+                .fa-solid.fa-x {
+                    color: #59646b;
+                }
+            }
+            .notes-title {
+                font-size: 30px;
+            }
+            .notes-image {
+                object-fit: fill;
+                font-size: 20px;
+            }
+            .notes-content {
+                font-size: 20px;
+            }
+            .color-container {
+                display: flex;
+                justify-content: space-between;
+                .color-wrapper {
+                    display: flex;
+                }
+                .color {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 35px;
+                    height: 35px;
+                    margin: 5px;
+                    border-radius: 50px;
+                    &.pink {
+                        background-color: #ebcced;
+                        border: 1px solid #ebcced;
+                    }
+                    &.white {
+                        background-color: #fcfcfc;
+                        border: 1px solid #fcfcfc;
+                    }
+                    &.yellow {
+                        background-color: #ffca72;
+                        border: 1px solid #ffca72;
+                    }
+                    &.green {
+                        background-color: #e5ee90;
+                        border: 1px solid #e5ee90;
+                    }
+                    &.peach {
+                        background-color: #ffa78b;
+                        border: 1px solid #ffa78b;
+                    }
+                    .fa-solid.fa-check {
+                        display: none;
+                        justify-content: center;
+                        font-size: 20px;
+                    }
+                    // .color-radio-button {
+                    //     visibility: hidden;
+                    // }
+                }
+                .add-note {
+                    display: inline-block;
+                    font-size: 16px;
+                    padding: 10px 25px;
+                    margin-left: 5px;
+                    border-radius: 25px;
+                    color: #ffffff;
+                    background-color: #b354b7;
+                    border: 1px solid #b354b7;
+                }
+            }
+        }
+        
+        .note-wrapper {
+            margin: auto;
+            margin-top: 55px;
+            width: 60%;
+            color: #5d5d5d;
+            .color {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 55px;
+                height: 55px;
+                margin: 5px;
+                border-radius: 50px;
+            }
+            .note-heading {
+                display: flex;
+                align-items: center;
+                .note-heading-section {
+                    margin-left: 25px;
+                    .note-title {
+                        color: #fcfcfc;
+                        font-size: 30px;
+                    }
+                    .note-date {
+                        margin-top: 5px;
+                    }
+                }
+            }
+            .image-wrapper {
+                display: flex;
+                justify-content: center;
+                margin: 20px;
+                .note-image {
+                    object-fit: contain;
+                }
+            }
+            .note-content {
+                font-size: 20px;
+                line-height: 40px;
+                word-spacing: 2px;
+                white-space: pre-wrap;
+                word-wrap: break-word;
+            }
+        }
+        
+        .load-more {
+            display: block;
+            position: absolute;
+            clear: both;
+            bottom: 1%;
+            right: 50%;
+            font-size: 16px;
+            padding: 10px 25px;
+            margin-left: 10px;
+            border-radius: 25px;
+            margin: auto;
+            color: #ffffff;
+            background-color: #b354b7;
+            border: 1px solid #b354b7;
+        }
+        
+        .delete-card {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 40%;
+            left: 35%;
+            width: 32%;
+            padding: 50px;
+            background-color: #000000;
+            .confirmation-message {
+                margin: 25px 10px;
+                font-size: 22px;
+                text-align: center;
+                color: #fcfcfc;
+            }
+            .delete-all-note-button {
+                font-size: 16px;
+                padding: 10px 25px;
+                margin-left: 10px;
+                border-radius: 25px;
+                margin: auto;
+                color: #ffffff;
+                background-color: #b354b7;
+                border: 1px solid #b354b7;
+            }
+        }

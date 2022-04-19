@@ -1,0 +1,441 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', serif;
+  background-color: #000000;
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 25px 100px;
+  background-color: #031d2e;
+}
+
+nav button {
+  font-size: 16px;
+  padding: 10px 25px;
+  margin-left: 10px;
+  border-radius: 25px;
+}
+
+nav .logo {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-family: 'IBM Plex Serif';
+  color: #ffffff;
+}
+
+nav .logo .first-name {
+  font-weight: 400;
+  font-size: 30px;
+}
+
+nav .logo .last-name {
+  font-weight: 600;
+  font-size: 30px;
+}
+
+nav .delete-all {
+  display: inline-block;
+  color: #ffffff;
+  background-color: #a80000;
+  border: 1px solid #a80000;
+}
+
+nav .new {
+  display: inline-block;
+  color: #ffffff;
+  background-color: #b354b7;
+  border: 1px solid #b354b7;
+}
+
+nav .fas.fa-arrow-left {
+  color: #fcfcfc;
+  font-size: 30px;
+  margin-right: 25px;
+}
+
+.card-wrapper-empty {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.card-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  left: 18%;
+  width: 70%;
+}
+
+.card-wrapper .card-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin: 60px 0px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.card-wrapper .card {
+  margin: 15px;
+  height: 430px;
+  width: 20%;
+  border-radius: 10px;
+  padding: 15px;
+  word-wrap: break-word;
+}
+
+.card-wrapper .card .card-note-title {
+  margin-bottom: 10px;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.card-wrapper .card .card-note-date {
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.card-wrapper .card .card-note-image {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 100%;
+  height: 30%;
+}
+
+.card-wrapper .card .card-note-content {
+  margin-top: 25px;
+}
+
+.card-wrapper button {
+  font-size: 16px;
+  padding: 10px 25px;
+  margin-left: 10px;
+  border-radius: 25px;
+}
+
+i.fa-solid.fa-cube {
+  margin-top: 10%;
+  margin-bottom: 2%;
+  display: block;
+  color: #fcfcfc;
+  font-size: 175px;
+}
+
+.text-empty {
+  display: block;
+  color: #fcfcfc;
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.hide-new-note {
+  position: relative;
+  height: 100vh;
+  background-color: #031d2e;
+  opacity: 0.2;
+  -webkit-transition: 1.5s;
+  transition: 1.5s;
+}
+
+.new-note {
+  position: absolute;
+  top: 0%;
+  left: 70%;
+  width: 30%;
+  padding: 50px;
+  background-color: #000000;
+}
+
+.new-note input {
+  display: inline-block;
+  width: 100%;
+  height: 40px;
+  padding: 1px;
+  margin-top: 15px;
+  color: #363636;
+  background-color: #000000;
+  border: 1px solid #000000;
+}
+
+.new-note textArea {
+  display: inline-block;
+  width: 100%;
+  height: 639px;
+  padding: 1px;
+  margin-top: 15px;
+  color: #363636;
+  background-color: #000000;
+  border: 1px solid #000000;
+}
+
+.new-note .new-note-cancel {
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 18px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #031d2e;
+  border: 1px solid #031d2e;
+  color: #ffffff;
+  padding: 17px;
+  width: 100%;
+}
+
+.new-note .new-note-cancel .fa-solid.fa-x {
+  color: #59646b;
+}
+
+.new-note .notes-title {
+  font-size: 30px;
+}
+
+.new-note .notes-image {
+  -o-object-fit: fill;
+     object-fit: fill;
+  font-size: 20px;
+}
+
+.new-note .notes-content {
+  font-size: 20px;
+}
+
+.new-note .color-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.new-note .color-container .color-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.new-note .color-container .color {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 35px;
+  height: 35px;
+  margin: 5px;
+  border-radius: 50px;
+}
+
+.new-note .color-container .color.pink {
+  background-color: #ebcced;
+  border: 1px solid #ebcced;
+}
+
+.new-note .color-container .color.white {
+  background-color: #fcfcfc;
+  border: 1px solid #fcfcfc;
+}
+
+.new-note .color-container .color.yellow {
+  background-color: #ffca72;
+  border: 1px solid #ffca72;
+}
+
+.new-note .color-container .color.green {
+  background-color: #e5ee90;
+  border: 1px solid #e5ee90;
+}
+
+.new-note .color-container .color.peach {
+  background-color: #ffa78b;
+  border: 1px solid #ffa78b;
+}
+
+.new-note .color-container .color .fa-solid.fa-check {
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 20px;
+}
+
+.new-note .color-container .add-note {
+  display: inline-block;
+  font-size: 16px;
+  padding: 10px 25px;
+  margin-left: 5px;
+  border-radius: 25px;
+  color: #ffffff;
+  background-color: #b354b7;
+  border: 1px solid #b354b7;
+}
+
+.note-wrapper {
+  margin: auto;
+  margin-top: 55px;
+  width: 60%;
+  color: #5d5d5d;
+}
+
+.note-wrapper .color {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 55px;
+  height: 55px;
+  margin: 5px;
+  border-radius: 50px;
+}
+
+.note-wrapper .note-heading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.note-wrapper .note-heading .note-heading-section {
+  margin-left: 25px;
+}
+
+.note-wrapper .note-heading .note-heading-section .note-title {
+  color: #fcfcfc;
+  font-size: 30px;
+}
+
+.note-wrapper .note-heading .note-heading-section .note-date {
+  margin-top: 5px;
+}
+
+.note-wrapper .image-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 20px;
+}
+
+.note-wrapper .image-wrapper .note-image {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.note-wrapper .note-content {
+  font-size: 20px;
+  line-height: 40px;
+  word-spacing: 2px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.load-more {
+  display: block;
+  position: absolute;
+  clear: both;
+  bottom: 1%;
+  right: 50%;
+  font-size: 16px;
+  padding: 10px 25px;
+  margin-left: 10px;
+  border-radius: 25px;
+  margin: auto;
+  color: #ffffff;
+  background-color: #b354b7;
+  border: 1px solid #b354b7;
+}
+
+.delete-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  top: 40%;
+  left: 35%;
+  width: 32%;
+  padding: 50px;
+  background-color: #000000;
+}
+
+.delete-card .confirmation-message {
+  margin: 25px 10px;
+  font-size: 22px;
+  text-align: center;
+  color: #fcfcfc;
+}
+
+.delete-card .delete-all-note-button {
+  font-size: 16px;
+  padding: 10px 25px;
+  margin-left: 10px;
+  border-radius: 25px;
+  margin: auto;
+  color: #ffffff;
+  background-color: #b354b7;
+  border: 1px solid #b354b7;
+}
+/*# sourceMappingURL=index.css.map */

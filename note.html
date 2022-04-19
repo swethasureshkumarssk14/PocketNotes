@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pocket Notes</title>
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@100;200;300;400;500;600;700&family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./scss/index.css">
+    <!-- scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./js/viewNote.js"></script>
+    <script src="./js/note.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left-alignment">
+                <i class="fas fa-arrow-left" onclick="navigateBack()"></i>
+                <h1 class="logo">
+                    <span class="first-name">Pocket</span>
+                    <span class="last-name">&nbsp;Notes</span>
+                </h1>
+            </div>
+            <div class="button-wrapper">
+                <button class="delete-all" id="delete" onclick="confirmDeleteNote();">DELETE</button>
+                <button class="new" id="editNote" onclick="editNote()">EDIT</button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="overlayDeleteNote" class="overlay">
+            <div class="new-note-wrapper">
+                <div class="hide-new-note" onclick='hideContainer("overlayDeleteNote")'></div>
+                <div class="new-note delete-card">
+                    <button class="new-note-cancel delete-all-cancel" onclick='hideContainer("overlayDeleteNote")'>
+                        CONFIRM DELETE
+                        <i class="fa-solid fa-x"></i>
+                    </button>
+                    <p id="confirmationMessage" class="confirmation-message">
+                        Are you sure you want to delete the note?
+                    </p>
+                    <button class="delete-all-note-button" onclick="confirmDelete()">YES,I CONFIRM</button>
+                </div>
+            </div>
+            </div>
+
+        </section>
+        <section id="overlayEditNote" class="overlay">
+            <div class="new-note-wrapper">
+                <div class="hide-new-note" onclick='hideContainer("overlayEditNote")'></div>
+                <div class="new-note">
+                    <button class="new-note-cancel" onclick='hideContainer("overlayEditNote")'>
+                        EDIT NOTE 
+                        <i class="fa-solid fa-x"></i>
+                    </button>
+                    <form id="newNoteForm">
+                        <input type="text" id="editTitle" class="notes-title" placeholder="Notes Title">
+                        <input type="text" id="editImage" class="notes-images" placeholder="Add Image URL">
+                        <textarea class="notes-content" id="editContent" placeholder="Add Content Here"></textarea>
+                        <div class="color-container">
+                            <div class="color-wrapper">
+                                <div class="color pink" onclick="selectedColor('pinkSelector')">
+                                    <i class="fa-solid fa-check" id="pinkSelector"></i>
+                                </div>
+                                <div class="color white" onclick="selectedColor('whiteSelector')">
+                                    <i class="fa-solid fa-check" id="whiteSelector"></i>
+                                </div>
+                                <div class="color yellow" onclick="selectedColor('yellowSelector')">
+                                    <i class="fa-solid fa-check" id="yellowSelector"></i>
+                                </div>
+                                <div class="color green" onclick="selectedColor('greenSelector')">
+                                    <i class="fa-solid fa-check" id="greenSelector"></i>
+                                </div>
+                                <div class="color peach" onclick="selectedColor('peachSelector')">
+                                    <i class="fa-solid fa-check" id="peachSelector"></i>
+                                </div>
+                            </div>
+                    </form>
+                    <button class="add-note " onclick="saveNote() ">SAVE</button>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+</body>
+
+</html>
